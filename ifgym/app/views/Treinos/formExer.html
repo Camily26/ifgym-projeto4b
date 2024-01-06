@@ -1,0 +1,58 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro' /}
+
+<div class="containerForm">
+
+    <form class="row g-3" action="@{Treinos.salvarExercicio()}" method=" post">
+
+        <h2>Cadastro de exercicio</h2>
+
+
+        <input type="hidden" name="ex.id" value="${ex?.id}">
+
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Nome</label>
+            <span class="red">
+                #{error 'ex.nome' /}
+            </span>
+            <input type="text" class="form-control" aria-label="First name" name="ex.nome" value="${ex?.nome}">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Descrição</label> <span class="red">
+                #{error 'ex.descricao' /}
+            </span>
+            <input type="text" class="form-control" id="inputEmail4" name="ex.descricao" value="${ex?.descricao}">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Séries</label><span class="red">
+                #{error 'ex.series' /}
+            </span>
+            <input type="number" class="form-control" id="inputPassword4" name="ex.series" value="${ex?.series}">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">Repetições p/ séries</label> <span class="red">
+                #{error 'ex.repeticoes' /}
+            </span>
+            <input type="number" class="form-control" id="inputCity" name="ex.repeticoes" value="${ex?.repeticoes}"
+                min="0" max="1000">
+        </div>
+
+        <div class="col-md-3">
+            <label for="inputZip" class="form-label">Duração</label><span class="red">
+                #{error 'ex.duracao' /}
+            </span>
+
+            <input type="number" class="form-control" id="inputZip" name="ex.duracao" value="${ex?.duracao}" max="230"
+                min="0">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Finalizar</button>
+        </div>
+
+    </form>
+
+</div>

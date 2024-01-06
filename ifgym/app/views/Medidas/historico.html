@@ -1,0 +1,75 @@
+#{extends 'main.html' /}
+#{set title:'Histórico' /}
+<style>
+        body {
+                background: rgb(99, 39, 120)
+        }
+
+        a {
+                color: white;
+        }
+</style>
+
+
+
+<div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button"><a
+                                        href="@{Usuarios.perfil()}">Voltar</a>
+                </div><br>
+                <div class="col-md-3 border-right">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                        class="rounded-circle mt-5" width="150px"
+                                        src=""><span
+                                        class="font-weight-bold"></span><span class="text-black-50"></span><span>
+                                </span></div>
+                </div>
+                <div class="col-md-4">
+                        <div class="d-flex justify-content-between align-items-center experience">
+                                <span class="border px-3 p-1 add-experience"><h3>
+                                                Histórico</h3></span>
+                        </div>
+
+                        #{list items:listaMedidas, as: "m"}
+                        <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center experience">
+                                        <span class="border px-3 p-1 add-experience"><i
+                                                        class="fa fa-plus"></i>&nbsp;${m?.dataDeCriacao.getDayOfMonth()}/${m?.dataDeCriacao.getMonthValue()}/${m?.dataDeCriacao.getYear()}</span>
+                                </div>
+
+                        </div>
+                        <br>
+                        <div class="col-md-12"><label class="labels">Peso (KG)</label><input type="text"
+                                        class="form-control" placeholder="${m?.peso}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Altura (CM)</label><input type="text"
+                                        class="form-control" placeholder="${m?.altura}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Ombro</label><input type="text"
+                                        class="form-control" placeholder="${m?.ombro}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Braço</label><input type="text"
+                                        class="form-control" placeholder="${m?.braco}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Antebraço</label><input type="text"
+                                        class="form-control" placeholder="${m?.antebraco}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Busto</label><input type="text"
+                                        class="form-control" placeholder="${m?.busto}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Abdomen</label><input type="text"
+                                        class="form-control" placeholder="${m?.abdomen}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Quadril</label><input type="text"
+                                        class="form-control" placeholder="${m?.quadril}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Cintura</label><input type="text"
+                                        class="form-control" placeholder="${m?.cintura}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Gluteo</label><input type="text"
+                                        class="form-control" placeholder="${m?.gluteo}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Quadriceps</label><input type="text"
+                                        class="form-control" placeholder="${m?.quadriceps}" value="" disabled></div>
+                        <div class="col-md-12"><label class="labels">Panturrilha</label><input type="text"
+                                        class="form-control" placeholder="${m?.panturrilha}" value="" disabled></div>
+                        <br>
+                        <hr>
+                        #{/list}
+                </div>
+        </div>
+</div>
+</div>
+</div>
+</div>
+</div>

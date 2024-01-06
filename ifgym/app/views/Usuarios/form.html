@@ -1,0 +1,42 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro' /}
+
+
+<div class="containerForm">
+
+    <form class="row g-3" action="@{Usuarios.salvar}" method=" post" enctype="multipart/form-data">
+        <h2>Cadastro</h2>
+
+        <div class="row g-3">
+
+            <input type="hidden" name="u.id" value="${u?.id}">
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Nome</label> <span class="red">
+                    #{error 'u.nome'/}
+                </span>
+                <input type="text" class="form-control" aria-label="First name" name="u.nome" value="${u?.nome}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label> <span class="red">
+                    #{error 'u.email' /}
+                </span>
+                <input type="text" class="form-control" id="inputEmail4" name="u.email" value="${u?.email}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Senha</label> <span class="red">
+                    #{error 'u.senha' /}
+                </span>
+                <input type="password" class="form-control" id="inputPassword4" name="u.senha">
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary profile-button">Finalizar</button>
+            </div>
+
+    </form>
+    <button type="submit" class="btn btn-primary profile-button"><a href="@{Logins.form}">Voltar</a></button>
+
+</div>

@@ -1,0 +1,37 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    .btn {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+
+
+<div class="containerForm">
+    <h2 class="h2">Login</h2><br>
+
+    <form action="@{Logins.login}" method="post">
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail3" name="email">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" name="senha">
+            </div>
+        </div><br>
+        <button type="submit" class="btn btn-primary profile-button">Logar</button><hr><span>Não tem uma conta? <a
+                href="@{Usuarios.form}">Clique aqui</a></span>
+    </form>
+    <br>
+</div>

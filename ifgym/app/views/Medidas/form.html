@@ -1,0 +1,113 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro' /}
+
+<div class="containerForm">
+
+    <form class="row g-3" action="@{Medidas.salvar}" method=" post">
+
+        <input type="hidden" name="m.id" value="${m?.id}">
+
+        <h2>Cadastro de medidas</h2>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Altura (CM)</label><span class="red">
+                    #{error 'm.altura' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.altura" value="${m?.altura}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Peso (KG)</label><span class="red">
+                    #{error 'm.peso' /}
+                </span>
+                <input type="number" class="form-control" id="inputZip" name="m.peso" value="${m?.peso}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Ombro</label><span class="red">
+                    #{error 'm.ombro' /}
+                </span>
+                <input type="number" class="form-control" id="inputZip" name="m.ombro" value="${m?.ombro}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Braço</label><span class="red">
+                    #{error 'm.braco' /}
+                </span>
+                <input type="number" class="form-control" id="inputZip" name="m.braco" value="${m?.braco}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Antebraço</label> <span class="red">
+                    #{error 'm.antebraco' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.antebraco" value="${m?.antebraco}"
+                    max="230" min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Busto</label> <span class="red">
+                    #{error 'm.busto' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.busto" value="${m?.busto}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Abdomen</label><span class="red">
+                    #{error 'm.abdomen' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.abdomen" value="${m?.abdomen}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Quadril</label><span class="red">
+                    #{error 'm.quadril' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.quadril" value="${m?.quadril}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Cintura</label><span class="red">
+                    #{error 'm.cintura' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.cintura" value="${m?.cintura}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">gluteo</label><span class="red">
+                    #{error 'm.gluteo' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.gluteo" value="${m?.gluteo}" max="230"
+                    min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Quadriceps</label><span class="red">
+                    #{error 'm.quadriceps' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.quadriceps" value="${m?.quadriceps}"
+                    max="230" min="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Panturrilha</label><span class="red">
+                    #{error 'm.panturrilha' /}
+                </span>
+
+                <input type="number" class="form-control" id="inputZip" name="m.panturrilha" value="${m?.panturrilha}"
+                    max="230" min="0">
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Finalizar</button>
+            </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,41 @@
+#{extends 'main.html' /}
+#{set title:'Treinos e exercícios' /}
+
+
+<div class="container rounded bg-white mt-5 mb-5"><br>
+    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button"><a
+                href="@{Treinos.form()}">Adicionar treino</a>
+    </div><br>
+    <div class="row">
+
+        <div class="col-md-4 border-right">
+            <div class="p-3 py-5">
+                #{list items:listaDeTreinos, as: "t"}
+                <div class="d-flex justify-content-between align-items-center experience"><span
+                        class="border px-3 p-1 add-experience"><i
+                            class="fa fa-plus"></i>&nbsp;${t?.diaDaSemana}</span><span
+                        class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;${t?.nome}</span>
+                </div><br>
+
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="button"><a
+                            href="@{Treinos.detalhar(t.id)}">Exercicios</a></button>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="button"><a
+                            href="@{Treinos.formExer(t)}">Adicionar
+                            exercicio</a></button>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="button"><a
+                            href="@{Treinos.remover(t.id)}">remover
+                            treino</a></button>
+                </div>
+                <hr>
+                <br>
+                #{/list}
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

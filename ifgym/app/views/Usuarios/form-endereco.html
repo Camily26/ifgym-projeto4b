@@ -1,0 +1,104 @@
+#{extends 'main.html' /} #{set title:'Cadastro' /}
+
+<style>
+/* Webkit browsers (Safari, Chrome) */
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button
+	{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+/* Edge */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
+	{
+	display: none;
+}
+</style>
+
+<div class="containerForm">
+
+	<form class="row g-3" action="@{Usuarios.salvarEndereco}" method="post"
+		enctype="multipart/form-data">
+		<h2>Endereço</h2>
+
+		<div class="row g-3">
+
+			<input type="hidden" name="u.id" value="${u?.id}">
+
+			<div class="col-md-6">
+				<label for="inputNumero" class="form-label">Número</label> <input
+					id="inputNumero" type="text" class="form-control"
+					aria-label="Numero" name="u.endereco.numero" value="${u?.endereco?.numero}">
+			</div>
+
+			<div class="col-md-6">
+				<label for="inputRua" class="form-label">Rua</label> <input
+					id="inputRua" type="text" class="form-control" name="u.endereco.rua" 
+					value="${u?.endereco?.rua}">
+			</div>
+
+			<div class="col-md-6">
+				<label for="inputBairro" class="form-label">Bairro</label> <input
+					id="inputBairro" type="text" class="form-control" name="u.endereco.bairro" value="${u?.endereco?.bairro}">
+			</div>
+
+			<div class="col-md-6">
+				<label for="inputCep" class="form-label">CEP</label> <input
+					id="inputCep" type="number" class="form-control no-spinners"
+					name="u.endereco.cep" value="${u?.endereco?.cep}">
+			</div>
+
+			<div class="col-md-6">
+				<label for="inputCidade" class="form-label">Cidade</label><input
+					id="inputCidade" type="text" class="form-control" name="u.endereco.cidade" value="${u?.endereco?.cidade}">
+			</div>
+
+			<div class="col-12">
+				<button type="submit" class="btn btn-primary profile-button">Finalizar</button>
+			</div>
+	</form>
+	<button type="submit" class="btn btn-primary profile-button">
+		<a href="@{Logins.form}">Voltar</a>
+	</button>
+
+</div>
+
+<script>
+const inputElement = document.getElementById('inputCep');
+const inputRua = document.getElementById('inputRua');
+const inputBairro = document.getElementById('inputBairro');
+const inputCidade = document.getElementById('inputCidade');
+const maxLength = 8;
+
+inputElement.addEventListener('input', function() {
+  if (this.value.length > maxLength) {
+    this.value = this.value.slice(0, maxLength);
+  }
+
+  if (this.value.length === maxLength) {
+    console.log('Reached 8 digits!', this.value);
+
+    var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch('https://viacep.com.br/ws/'+ this.value +'/json/', requestOptions)
+  .then(response => response.json())
+  .then(result => {
+    console.log(result);
+    inputRua.value = result.logradouro;
+    inputBairro.value = result.bairro;
+    inputCidade.value = result.localidade;
+  })
+  .catch(error => console.log('error', error));
+    
+  }
+});
+
+</script>
